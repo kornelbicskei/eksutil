@@ -180,7 +180,7 @@ func getUsername(iamRoleARN string) string {
 func (c *ClientConfig) WithEmbeddedToken() (*ClientConfig, error) {
 	clientConfigCopy := *c
 
-	log.Info("Generating token")
+	log.Info("Generating token for role: #{c.AssumeRoleArn}")
 
 	gen, err := token.NewGenerator()
 	if err != nil {
