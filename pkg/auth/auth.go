@@ -187,7 +187,7 @@ func (c *ClientConfig) WithEmbeddedToken() (*ClientConfig, error) {
 		return nil, errors.Wrap(err, "could not get token generator")
 	}
 
-	tok, err := gen.GetWithSTS(c.ClusterName, c.sts.(*sts.STS))
+	tok, err := gen.GetWithRoleForSession(c.ClusterName, c.AssumeRoleArn, c.sts.(*sts.STS))
 	if err != nil {
 		return nil, errors.Wrap(err, "could not get token")
 	}
